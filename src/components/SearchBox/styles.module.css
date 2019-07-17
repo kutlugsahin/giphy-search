@@ -1,0 +1,37 @@
+.searchbox form{
+    display: flex;
+}
+
+.searchbox input {
+    border: 1px solid #ccc;
+    padding: 8px;
+    min-width: 400px;
+    outline: none;
+    font-size: 16px;
+}
+
+.searchbox input:focus {
+    border: 1px solid #aaa;
+}
+
+.searchbox button {
+    background-color: #aaa;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .searchbox form {
+        flex:1;
+    }
+
+    .searchbox input {
+        min-width: 0;
+        flex:1;
+    }
+
+    .searchbox {
+        flex:1;
+    }
+}

@@ -1,0 +1,28 @@
+.appbar {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 0 3px 1px #ccc;
+    background-color: #fafafa;
+}
+
+
+.brand {
+    position: absolute;
+    left: 10px;
+    color: #666;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .appbar {
+        padding: 0;
+    }
+
+    .brand {
+        display: none;
+    }
+}
