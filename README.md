@@ -17,22 +17,22 @@ yarn test
 
 - Typescript as language
 
-    I'm also comfortable with ES6 and it would take much less code for this particular application but I believe TS increases readability and scalability of the code.
+I'm also comfortable with ES6 and it would take much less code for this particular application but I believe TS increases readability and scalability of the code.
 
 - React
 
-    Because it's my to go frontend library.
+Because it's my to go frontend library.
     I prefered not to use hooks. I believe it's still controversial, react team promoting it to be used for getting feedback from users. Hooks decreases line of code and yet for most of the React developers class components are more familiar and easy to read.
 
 - CRA to bootstrap application environment
 
-    Fast bootstrap and configured enough for this particular application
+Fast bootstrap and configured enough for this particular application
 
 - react-icons for icons (just for three icons to make app a litle bit nicer)
 - Jest / Enzyme for testing
 - lodash.throttle for throttling scroll events
 
-    I could write my own throttle function but for most of the applications lodash or underscore would be already installed anyway.
+I could write my own throttle function but for most of the applications lodash or underscore would be already installed anyway.
 
 ### Architecture
 
@@ -53,3 +53,13 @@ So I decided to use React context API to solve data storage and manipulation. So
     - **providers** : Context for shared data and functions
       - **ImageProvider** : Creates a context and act as a store for image related data. Also provides functions to search images and load more images. Uses api to fetch images and keeps data in it's internal state.
       - **LayoutProvider** : Context for grid layout to configure column count for image grid (single or three columns). Used by ImageList to set GridLayout's columns props and by AppBar which updates the imageGridColumns property in the context.
+
+### Things to improve
+
+ I have spent around 8 hours for that challenge so I need to stop now. If I had more time to spent here are the things that I would improve.
+ 
+ **more test** : Tests can always be improved as given more time
+
+ **Virtualizing** : To improve image loading performance which are visible to the user I could have implemented a virtualizing mechnism which only loads the image in the view port. I could also use already existing libraries for that like react-window / react-virtualized
+
+ **Styling / CSS** : Well I'm not a UX expert but I enjoy trying to make UI pretty. But that could take forever. And also I could come up with a better css or scss structure (also mybe CSS-in-JS solutions)
