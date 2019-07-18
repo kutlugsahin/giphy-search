@@ -65,8 +65,13 @@ export class ImageList extends React.Component<ImageListProps> {
         );
     }
 
-    private renderImage(image: ImageData, index?: number) {
-        return <Image aspect={image.height / image.width} url={image.url} key={`${image.id}${index}`} />
+    private renderImage(image: ImageData) {
+        return (
+            <a className={styles.imageLink} target="__blank" href={image.originalUrl}>
+                <div className={styles.imageTitle}>{image.title}</div>
+                <Image aspect={image.height / image.width} url={image.url} />
+            </a>
+        )
     }
 }
 

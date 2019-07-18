@@ -29,6 +29,11 @@
     border: none;
     cursor: pointer;
     outline: none;
+    fill: #aaa;
+}
+
+.layoutOptions > button.active svg {
+    fill: #333;
 }
 
 @media (max-width: 768px) {
@@ -38,5 +43,9 @@
 
     .brand {
         display: none;
+    }
+
+    .layoutOptions {
+        position: static;
     }
 }

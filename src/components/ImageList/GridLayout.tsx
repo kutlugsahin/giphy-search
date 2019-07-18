@@ -11,10 +11,12 @@ export default <T extends { id: string }>({ columns, items, renderItem }: GridLa
     return (
         <div className={styles.gridlayout}>
             <div className={styles.gridinnercontainer}>
-                {items.map(item => {
+                {items.map((item, index) => {
                     return (
-                        <div key={item.id} className={styles.gridbox} style={{ width: `${100 / columns}%` }}>
-                            {renderItem(item)}
+                        <div key={`${item.id}${index}`} className={styles.gridbox} style={{ width: `${100 / columns}%` }}>
+                            <div className={styles.gridBoxInner}>
+                                {renderItem(item)}
+                            </div>
                         </div>
                     )
                 })}

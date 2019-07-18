@@ -7,7 +7,7 @@ describe('AppBar Component', () => {
     const searchMock = jest.fn();
 
     it('Switch to three column layout', () => {
-        const appbar = shallow(<AppBar search={searchMock} setImageGridColumns={setColumnsMock} />);
+        const appbar = shallow(<AppBar search={searchMock} setImageGridColumns={setColumnsMock} columns={1}/>);
         
         appbar.find('button').at(1).simulate('click');
 
@@ -15,7 +15,7 @@ describe('AppBar Component', () => {
     })
 
     it('Switch to single column layout', () => {
-        const appbar = shallow(<AppBar search={searchMock} setImageGridColumns={setColumnsMock} />);
+        const appbar = shallow(<AppBar search={searchMock} setImageGridColumns={setColumnsMock} columns={1}/>);
 
         appbar.find('button').at(0).simulate('click');
 

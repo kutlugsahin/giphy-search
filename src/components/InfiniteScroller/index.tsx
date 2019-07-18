@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ImageLoadStatus } from '../../providers/ImageProvider/interface';
-import debounce from 'lodash.debounce';
+import throttle from 'lodash.throttle';
 import styles from './styles.module.css';
 
 export interface InfiniteScrollerProps {
@@ -30,7 +30,7 @@ export default class InfiniteScroller extends React.Component<InfiniteScrollerPr
         this.renderStatus = this.renderStatus.bind(this);
         this.renderSpinner = this.renderSpinner.bind(this);
         this.renderError = this.renderError.bind(this);
-        this.onScroll = debounce(this.onScroll.bind(this), 100);
+        this.onScroll = throttle(this.onScroll.bind(this), 100);
     }
 
     componentDidMount() {

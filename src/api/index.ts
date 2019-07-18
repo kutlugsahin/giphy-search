@@ -1,8 +1,10 @@
 export interface ImageData {
     url: string;
+    originalUrl: string;
     width: number;
     height: number;
-    id: string
+    id: string;
+    title: string;
 }
 
 export interface ImageQueryResult {
@@ -19,7 +21,9 @@ function toQueryresult(data: any): ImageData {
         url: data.images.fixed_width.url,
         height: data.images.fixed_width.height,
         width: data.images.fixed_width.width,
-        id: data.id
+        id: data.id,
+        originalUrl: data.images.original.url,
+        title: data.title
     }
 }
 

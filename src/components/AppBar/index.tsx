@@ -9,6 +9,7 @@ import { SearchFunction } from '../../providers/ImageProvider/interface';
 export interface AppBarProps {
     setImageGridColumns: (size: number) => void;
     search: SearchFunction;
+    columns: number;
 }
 
 /**
@@ -20,11 +21,11 @@ export const AppBar = (props: AppBarProps) => {
             <span className={styles.brand}>GIPHY Search</span>
             <SearchBox search={props.search} />
             <div className={styles.layoutOptions}>
-                <button onClick={() => props.setImageGridColumns(1)} title="Single Column">
-                    <FaBars size={24} fill={'#555'} />
+                <button className={props.columns === 1 ? styles.active : ''} onClick={() => props.setImageGridColumns(1)} title="Single Column">
+                    <FaBars size={24} fill="inherit"/>
                 </button>
-                <button onClick={() => props.setImageGridColumns(3)} title="Three Columns">
-                    <FaTh size={24} fill={'#555'} />
+                <button className={props.columns === 3 ? styles.active : ''} onClick={() => props.setImageGridColumns(3)} title="Three Columns">
+                    <FaTh size={24} fill="inherit" />
                 </button>
             </div>
         </div>
@@ -39,6 +40,7 @@ export default () => {
                     {layoutContext => <AppBar
                         search={context.search}
                         setImageGridColumns={layoutContext.setImageGridColumns}
+                        columns={layoutContext.imageGridColumns}
                     />}
                 </LayoutProviderContext.Consumer>
             )}

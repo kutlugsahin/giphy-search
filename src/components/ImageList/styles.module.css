@@ -43,4 +43,25 @@
 
 .gridbox {
     padding: 6px;
+    overflow: hidden;
+}
+
+.gridBoxInner {
+    border: 1px solid #eee;
+    background-color: #f9f9f9;
+    box-shadow: 1px 1px 5px 1px #ccc;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.imageLink {
+    text-decoration: none;
+    color: #555;
+    font-size: 18px;
+}
+
+.imageTitle {
+    padding: 5px 10px;
+    text-overflow: ellipsis;
 }

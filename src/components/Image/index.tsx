@@ -16,7 +16,7 @@ class Image extends React.PureComponent<ImageProps> {
 
         return (
             <div className={styles.imagebox} style={style}>
-                <img src={this.props.url} />
+                <img src={this.props.url} alt={this.props.url}/>
             </div>
         );
     }
