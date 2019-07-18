@@ -16,7 +16,6 @@ describe('ImageList Component', () => {
  
     it('renders all images', () => {
         const wrapper = mount(<ImageList images={images} columns={1} status={ImageLoadStatus.DONE} loadMore={loadMoreMock}/>);
-        console.log(wrapper.html())
         expect(wrapper.find('.gridbox').length).toEqual(images.length);
     })
 })

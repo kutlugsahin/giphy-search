@@ -1,44 +1,55 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Run
 
-## Available Scripts
+```bash
+yarn install
+```
+```bash
+yarn start
+```
 
-In the project directory, you can run:
+### Test
 
-### `npm start`
+```bash
+yarn test 
+```
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Tech Choice Justification
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- Typescript as language
 
-### `npm test`
+    I'm also comfortable with ES6 and it would take much less code for this particular application but I believe TS increases readability and scalability of the code.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React
 
-### `npm run build`
+    Because it's my to go frontend library.
+    I prefered not to use hooks. I believe it's still controversial, react team promoting it to be used for getting feedback from users. Hooks decreases line of code and yet for most of the React developers class components are more familiar and easy to read.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- CRA to bootstrap application environment
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+    Fast bootstrap and configured enough for this particular application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- react-icons for icons (just for three icons to make app a litle bit nicer)
+- Jest / Enzyme for testing
+- lodash.throttle for throttling scroll events
 
-### `npm run eject`
+    I could write my own throttle function but for most of the applications lodash or underscore would be already installed anyway.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Architecture
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I was planning to set up Flux architecture using Redux and Redux-Saga middleware for side effects and Reselect for selectors but I was adviced by Veronika to avoid using third party libraries as much as possible.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+So I decided to use React context API to solve data storage and manipulation. So basically data storage and dispatching is done via two main components called ImageProvider and LayoutProvider which creates context and provides data and functions to their consumers.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+ #### Structure
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+ - **src**
+   - **api** : exports one function getImages which return an array of a structured ImageData
+   - **components** : 
+     - **AppBar** : renders search bar and layout options
+     - **Image** : Pure component to render image respecting the aspect ratio
+     - **ImageList** : responsible for rendering images composing InfiniteScroller and GridLayout components It's wrapped by context consumers to retrieve data and pass to it's children as their props.
+     - **InfinteScroller** : A stateless component which takes onLoad function and loading status as props and renders it's children as an ordinary scroll view. Calculates the scroll position by listening throttled scroll events and calls onLoad if the scroll amount has reaced to a given proximity threshold. Uses status property to render spinner/error at the bottom. Props are provided by the parent ImageList component.
+     - **SearchBox** : A small form with an input and a submit button. Takes a search function as prop and calls it when the form is submitted. Search prop is provided by AppBar component which uses ImageProvider to make a search and update context.
+    - **providers** : Context for shared data and functions
+      - **ImageProvider** : Creates a context and act as a store for image related data. Also provides functions to search images and load more images. Uses api to fetch images and keeps data in it's internal state.
+      - **LayoutProvider** : Context for grid layout to configure column count for image grid (single or three columns). Used by ImageList to set GridLayout's columns props and by AppBar which updates the imageGridColumns property in the context.
