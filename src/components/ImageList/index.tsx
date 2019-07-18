@@ -22,7 +22,7 @@ export interface ImageListProps {
  * @class ImageList
  * @extends {React.Component<ImageListProps>}
  */
-class ImageList extends React.Component<ImageListProps> {
+export class ImageList extends React.Component<ImageListProps> {
     constructor(props: ImageListProps) {
         super(props);
         this.renderContent = this.renderContent.bind(this);

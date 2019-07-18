@@ -4,7 +4,7 @@
     padding-top: 10px;
 }
 
-.spinnercontainer {
+.spinnerContainer {
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -20,13 +20,13 @@
     font-size: 30px;
 }
 
-.errorcontaner {
+.errorContainer {
     padding: 10px;
     display: flex;
     justify-content: center;
 }
 
-.errorcontaner > button {
+.errorContainer > button {
     padding: 10px;
     border: none;
     background-color: transparent;

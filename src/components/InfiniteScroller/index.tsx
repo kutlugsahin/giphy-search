@@ -18,7 +18,7 @@ export interface InfiniteScrollerProps {
  * @class InfiniteScroller
  * @extends {React.Component<InfiniteScrollerProps>}
  */
-class InfiniteScroller extends React.Component<InfiniteScrollerProps> {
+export default class InfiniteScroller extends React.Component<InfiniteScrollerProps> {
     private scrollContainer: React.RefObject<HTMLDivElement> = React.createRef();
 
     public static defaultProps: Partial<InfiniteScrollerProps> = {
@@ -68,7 +68,7 @@ class InfiniteScroller extends React.Component<InfiniteScrollerProps> {
 
     private renderSpinner() {
         return (
-            <div className={styles.spinnercontainer}>
+            <div className={styles.spinnerContainer}>
                 <span className={styles.spinner}>◠</span>
             </div>
         )
@@ -76,7 +76,7 @@ class InfiniteScroller extends React.Component<InfiniteScrollerProps> {
 
     private renderError() {
         return (
-            <div className={styles.errorcontaner}>
+            <div className={styles.errorContainer}>
                 <button onClick={this.props.onLoad}>Connection Failed. Click to try again.</button>
             </div>
         )
@@ -104,5 +104,3 @@ class InfiniteScroller extends React.Component<InfiniteScrollerProps> {
         }
     }
 }
-
-export default InfiniteScroller;
