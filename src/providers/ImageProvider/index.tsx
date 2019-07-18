@@ -2,7 +2,7 @@ import * as React from 'react';
 import { getImages } from '../../api';
 import { ImageProviderProps, ImageProvideState, ImageLoadStatus, CancellableCall, ImageProviderContextData } from './interface';
 
-const IMAGE_TAKE_COUNT = 20;
+const IMAGE_TAKE_COUNT = 10;
 
 export const ImageProviderContext = React.createContext<ImageProviderContextData>(null!);
 

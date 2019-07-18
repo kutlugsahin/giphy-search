@@ -69,7 +69,7 @@ export class ImageList extends React.Component<ImageListProps> {
         return (
             <a className={styles.imageLink} target="__blank" href={image.originalUrl}>
                 <div className={styles.imageTitle}>{image.title}</div>
-                <Image aspect={image.height / image.width} url={image.url} />
+                <Image aspect={image.height / image.width} url={image.url} previewUrl={image.previewUrl}/>
             </a>
         )
     }

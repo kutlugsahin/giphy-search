@@ -37,6 +37,12 @@ export default class InfiniteScroller extends React.Component<InfiniteScrollerPr
         if (this.scrollContainer.current) {
             this.scrollContainer.current.addEventListener('scroll', this.onScroll);
         }
+
+        this.onScroll();
+    }
+
+    componentDidUpdate() {
+        this.onScroll();
     }
 
     componentWillUnmount() {
@@ -83,7 +89,7 @@ export default class InfiniteScroller extends React.Component<InfiniteScrollerPr
     }
 
     /**
-     * Debounced function to be called on scroll event
+     * throttled function to be called on scroll event
      * Calculates the scroll distance and if the distance to bottom is less then requestLoadProximity
      * calls onLoad prop
      *

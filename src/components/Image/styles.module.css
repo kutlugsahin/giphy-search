@@ -10,8 +10,13 @@
     right: 0;
     bottom: 0;
     width: 100%;
+    transition: filter 0.35s ease;
 }
 
 .imagebox + .imagebox {
     margin-top: 10px;
+}
+
+.blurImage {
+    filter: blur(7px);
 }

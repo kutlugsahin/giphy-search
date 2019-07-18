@@ -5,6 +5,7 @@ export interface ImageData {
     height: number;
     id: string;
     title: string;
+    previewUrl: string;
 }
 
 export interface ImageQueryResult {
@@ -23,7 +24,8 @@ function toQueryresult(data: any): ImageData {
         width: data.images.fixed_width.width,
         id: data.id,
         originalUrl: data.images.original.url,
-        title: data.title
+        title: data.title,
+        previewUrl: data.images.downsized_still.url
     }
 }
 
