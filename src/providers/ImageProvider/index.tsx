@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { getImages } from '../../api';
-import { ImageProviderProps, ImageProvideState, ImageLoadStatus, CancellableCall } from './interface';
-import { ImageProviderContext } from './context';
+import { ImageProviderProps, ImageProvideState, ImageLoadStatus, CancellableCall, ImageProviderContextData } from './interface';
 
 const IMAGE_TAKE_COUNT = 20;
 
+export const ImageProviderContext = React.createContext<ImageProviderContextData>(null!);
 
 /**
  * Component to provide Image related data to the application using React context api.

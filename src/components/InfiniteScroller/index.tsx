@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ImageLoadStatus } from '../ImageProvider/interface';
+import { ImageLoadStatus } from '../../providers/ImageProvider/interface';
 import debounce from 'lodash.debounce';
 import styles from './styles.module.css';
 
@@ -29,6 +29,7 @@ class InfiniteScroller extends React.Component<InfiniteScrollerProps> {
         super(props);
         this.renderStatus = this.renderStatus.bind(this);
         this.renderSpinner = this.renderSpinner.bind(this);
+        this.renderError = this.renderError.bind(this);
         this.onScroll = debounce(this.onScroll.bind(this), 100);
     }
 
@@ -59,7 +60,7 @@ class InfiniteScroller extends React.Component<InfiniteScrollerProps> {
             case ImageLoadStatus.LOADABLE:
                 return this.renderSpinner();
             case ImageLoadStatus.ERROR:
-                return 'Error'
+                return this.renderError();
             case ImageLoadStatus.DONE:
                 return null;
         }
@@ -69,6 +70,14 @@ class InfiniteScroller extends React.Component<InfiniteScrollerProps> {
         return (
             <div className={styles.spinnercontainer}>
                 <span className={styles.spinner}>◠</span>
+            </div>
+        )
+    }
+
+    private renderError() {
+        return (
+            <div className={styles.errorcontaner}>
+                <button onClick={this.props.onLoad}>Connection Failed. Click to try again.</button>
             </div>
         )
     }

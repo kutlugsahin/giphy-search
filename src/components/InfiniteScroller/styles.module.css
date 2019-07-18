@@ -20,6 +20,22 @@
     font-size: 30px;
 }
 
+.errorcontaner {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.errorcontaner > button {
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: #aaa;
+    cursor: pointer;
+    outline: none;
+}
+
 @keyframes spin {
     from {
         transform: rotate(0deg);

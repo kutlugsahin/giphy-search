@@ -7,15 +7,17 @@ export interface ImageProps {
 
 class Image extends React.PureComponent<ImageProps> {
     public render(): React.ReactNode {
+
+        // padding-top hack to maintain aspect ratio
         const style = {
             paddingTop: `${this.props.aspect * 100 - 1}%`,
             height: 0,
         }
 
         return (
-                <div className={styles.imagebox} style={style}>
-                    <img src={this.props.url} />
-                </div>
+            <div className={styles.imagebox} style={style}>
+                <img src={this.props.url} />
+            </div>
         );
     }
 }

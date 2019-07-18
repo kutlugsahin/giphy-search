@@ -1,18 +1,19 @@
 import React from 'react';
-import ImageProvider from './ImageProvider';
+import ImageProvider from '../providers/ImageProvider';
 import styles from './app.module.css';
 import AppBar from './AppBar';
 import ImageList from './ImageList';
+import LayoutProvider from '../providers/LayoutProvider';
 
-const App: React.FC = () => {
+export default () => {
   return (
     <ImageProvider>
-      <div className={styles.app}>
-        <AppBar />
-        <ImageList />
-      </div>
+      <LayoutProvider>
+        <div className={styles.app}>
+          <AppBar />
+          <ImageList />
+        </div>
+      </LayoutProvider>
     </ImageProvider>
   );
 }
-
-export default App;
