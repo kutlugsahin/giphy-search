@@ -42,6 +42,30 @@ I was planning to set up Flux architecture using Redux and Redux-Saga middleware
 
 So I decided to use React context API to solve data storage and manipulation. So basically data storage and dispatching is done via two main components called ImageProvider and LayoutProvider which creates context and provides data and functions to their consumers.
 
+ #### Component Hierarchy
+
+```
+ App
+  |
+  | -- ImageProvider
+     |
+     | -- LayoutProvider
+          |
+          | -- AppBar
+          |   |
+          |   |-- SearchBox
+          |   |
+          |   |-- Layout controls
+          |  
+          |-- ImageList
+               |
+               |-- InfiniteScroller
+                   |
+                   |-- GridLayout
+                       |
+                       |-- Image[]
+
+```
  #### Structure
 
  - **src**
