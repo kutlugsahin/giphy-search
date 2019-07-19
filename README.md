@@ -49,6 +49,7 @@ So I decided to use React context API to solve data storage and manipulation. So
      - **Image** : Pure component to render image respecting the aspect ratio
      - **ImageList** : responsible for rendering images composing InfiniteScroller and GridLayout components It's wrapped by context consumers to retrieve data and pass to it's children as their props.
      - **InfinteScroller** : A stateless component which takes onLoad function and loading status as props and renders it's children as an ordinary scroll view. Calculates the scroll position by listening throttled scroll events and calls onLoad if the scroll amount has reaced to a given proximity threshold. Uses status property to render spinner/error at the bottom. Props are provided by the parent ImageList component.
+     - **GridLayout** : Renders a grid layout divided to number of columns given by it's props. Uses a flex wrapped layout and controlled by ImageList component which sets the column prop to 1 or 3 according to the value provided by LayoutProvider.
      - **SearchBox** : A small form with an input and a submit button. Takes a search function as prop and calls it when the form is submitted. Search prop is provided by AppBar component which uses ImageProvider to make a search and update context.
     - **providers** : Context for shared data and functions
       - **ImageProvider** : Creates a context and act as a store for image related data. Also provides functions to search images and load more images. Uses api to fetch images and keeps data in it's internal state.
