@@ -1,4 +1,6 @@
-### Run
+## GIPHY Search Application
+
+### Install / Run
 
 ```bash
 yarn install
