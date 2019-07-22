@@ -72,7 +72,7 @@ So I decided to use React context API to solve data storage and manipulation. So
    - **api** : exports one function getImages which return an array of a structured ImageData
    - **components** : 
      - **AppBar** : renders search bar and layout options
-     - **Image** : Pure component to render image respecting the aspect ratio
+     - **Image** : Pure component to render image respecting the aspect ratio. Loads small and still version of GIF first and displays it with blur filter until the actual GIF is loaded. Then it replaces the still image with the actual GIF.
      - **ImageList** : responsible for rendering images composing InfiniteScroller and GridLayout components It's wrapped by context consumers to retrieve data and pass to it's children as their props.
      - **InfinteScroller** : A stateless component which takes onLoad function and loading status as props and renders it's children as an ordinary scroll view. Calculates the scroll position by listening throttled scroll events and calls onLoad if the scroll amount has reaced to a given proximity threshold. Uses status property to render spinner/error at the bottom. Props are provided by the parent ImageList component.
      - **GridLayout** : Renders a grid layout divided to number of columns given by it's props. Uses a flex wrapped layout and controlled by ImageList component which sets the column prop to 1 or 3 according to the value provided by LayoutProvider.
